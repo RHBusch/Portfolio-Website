@@ -182,16 +182,13 @@ table{
   text-align:center;
 }
 
+.learn-button{
+  margin:0 auto;
+}
 
 .animation-berlin{
   max-width: 700px;
   margin: 0 auto;
-}
-
-#learn-button{clear:both;
-  display:flex;
-  flex-direction: row;
-  text-align:center;
 }
 
 @keyframes color-change {0%

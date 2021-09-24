@@ -5,6 +5,7 @@
 * Browsers: last 4 version
 */
 
+
 *{-webkit-box-sizing:border-box;box-sizing:border-box;}
 
 body {
@@ -176,7 +177,7 @@ h1{font-size:22px}
   h1{font-size:22px}
 }
 
-.about-content, .contact-content {text-align:center;
+.about-content, .contact-content, .contact-elements{text-align:center;
 }
 table{
   margin: 0 auto;

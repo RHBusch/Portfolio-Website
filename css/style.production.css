@@ -199,10 +199,8 @@ table{
   margin: 0 auto;
 }
 
-.button__secondary{
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+.learn-button{
+  text-align:center;
 }
 
 @-webkit-keyframes color-change {0%

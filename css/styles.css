@@ -139,6 +139,7 @@ button:hover, button:focus{
   width: 33%;
   padding: 20px;
   border-radius: 10px;
+  align-items: center;
 }
 
 @supports (display:grid){

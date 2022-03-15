@@ -152,7 +152,7 @@ button:hover, button:focus{
   display: inline-block;
   width: 33%;
   padding: 20px;
-  align-items: center;
+  : center;
 }
 
 @supports (display:grid){
@@ -304,7 +304,7 @@ text-align: center;
 .meetText{ text-align:center;
 }
 .meetAppLink{
-  align-content: center;
+  text-align: center;
   }
 
 .meetAppImg{

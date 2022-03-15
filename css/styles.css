@@ -136,7 +136,9 @@ button:hover, button:focus{
 
 .grid__item{
   display: inline-block;
-  width: 33%
+  width: 33%;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 @supports (display:grid){

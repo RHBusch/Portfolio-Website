@@ -339,3 +339,255 @@ while (currentSibling !== null) {
 }
 
 console.log(`There goes ${oldestName} Schmidt!`);
+
+/* 
+The only property we need our linked list to have is a head, which we will add in our constructor. 
+Inside the LinkedList class, define the constructor. 
+It should take no parameters, and should set the list’s head to null.
+
+Define an .addToHead() method that takes one parameter called data. 
+Inside the method, create a Node const variable named newHead, and pass data as an argument.
+
+Still inside your .addToHead() method, create a const variable named currentHead, 
+and set it equal to the list’s head. Then change the list’s head to equal newHead.
+
+Finally, still in your .addToHead() method, check if there is a current head to the list. 
+If there is, set the list’s head’s next node to currentHead.
+
+*/
+
+const Node = require('./Node');
+
+class LinkedList {
+    constructor() { this.head = null }
+    addToHead(data) {
+        const newHead = new Node(data)
+        const currentHead = this.head
+        this.head = newHead
+        if (currentHead != null) {
+            this.head.setNextNode(currentHead)
+        }
+    }
+
+}
+
+module.exports = LinkedList;
+
+/*
+
+Define an .addToTail() method for the LinkedList that has one parameter called data. 
+Create a variable named tail, and set it equal to the list’s head. 
+tail is going to change throughout the method, so make it a let variable.
+
+Now that tail is equal to the head of the list, we want to check if it has any value. 
+If tail has no value, then that means the list was empty, 
+and we will be creating the head and tail with the data passed in.
+To do this, check if tail has no value.
+ If so, set the list’s head equal to a new Node that takes data as an argument.
+
+ If tail does have a value, that means the list is not empty. 
+ In that case, we want to iterate through the list until we find the end, 
+ so we can add tail to the end of the list.
+
+To do this, create an else after your if statement.
+ Inside it, make a while loop that runs while tail has a next node. 
+ Inside the loop, set tail equal to its next node.
+
+ Finally, inside the same else block, but outside the while loop, 
+ set tail‘s next node equal to a new Node that takes data as an argument.
+
+
+*/
+
+const Node = require('./Node');
+
+class LinkedList {
+
+    constructor() {
+        this.head = null;
+    }
+
+    addToHead(data) {
+        const newHead = new Node(data);
+        const currentHead = this.head;
+        this.head = newHead;
+        if (currentHead) {
+            this.head.setNextNode(currentHead);
+        }
+    }
+
+    addToTail(data) {
+        let tail = this.head
+        if (!tail) {
+            this.head = new Node(data);
+        } else {
+            while (tail.getNextNode() !== null) {
+                tail = tail.getNextNode()
+            };
+            tail.setNextNode(new Node(data));
+        }
+    }
+}
+
+
+module.exports = LinkedList;
+
+/*
+Define a .removeHead() method that takes no parameters. 
+Inside the method, create a const variable named removedHead and set it equal to the list’s head. 
+We will use this to keep track of the original head of the list.
+
+
+If removedHead has no value, return to end execution of the .removeHead() method.
+
+Outside the if statement, set the list’s head equal to removedHead‘s next node.
+
+Finally, return removedHead’s data.
+
+*/
+
+const Node = require('./Node');
+
+class LinkedList {
+
+    constructor() {
+        this.head = null;
+    }
+
+    addToHead(data) {
+        const newHead = new Node(data);
+        const currentHead = this.head;
+        this.head = newHead;
+        if (currentHead) {
+            this.head.setNextNode(currentHead);
+        }
+    }
+
+    addToTail(data) {
+        let tail = this.head;
+        if (!tail) {
+            this.head = new Node(data);
+        } else {
+            while (tail.getNextNode() !== null) {
+                tail = tail.getNextNode();
+            }
+            tail.setNextNode(new Node(data));
+        }
+    }
+
+    removeHead() {
+        const removedHead = this.head;
+        if (!removedHead) { return removeHead() }
+        this.head = removedHead.getNextNode()
+        return removedHead.data;
+    }
+
+}
+
+module.exports = LinkedList;
+
+
+
+
+/*
+
+Define a method named .printList(). Inside it, create:
+
+A let variable named currentNode, and set it equal to the list’s head
+Another let variable named output, and set it equal to '<head> '
+Then, log output to the console
+
+While currentNode doesn’t equal null, add its data and a ' ' to output. 
+Then update currentNode to be its next node. Do this above your console.log() statement.
+
+Finally, outside of the while loop, but before your console.log(), 
+set output equal to itself concatenated with '<tail>'.
+
+ */
+
+const Node = require('./Node');
+
+class LinkedList {
+
+    constructor() {
+        this.head = null;
+    }
+
+    addToHead(data) {
+        const newHead = new Node(data);
+        const currentHead = this.head;
+        this.head = newHead;
+        if (currentHead) {
+            this.head.setNextNode(currentHead);
+        }
+    }
+
+    addToTail(data) {
+        let tail = this.head;
+        if (!tail) {
+            this.head = new Node(data);
+        } else {
+            while (tail.getNextNode() !== null) {
+                tail = tail.getNextNode();
+            }
+            tail.setNextNode(new Node(data));
+        }
+    }
+
+    removeHead() {
+        const removedHead = this.head;
+        if (!removedHead) {
+            return;
+        }
+        this.head = removedHead.getNextNode();
+        return removedHead.data;
+    }
+
+    printList() {
+        let currentNode = this.head;
+        let output = '<head> ';
+        while (currentNode !== null) {
+            output += currentNode.data + ' ';
+            currentNode = currentNode.getNextNode();
+        }
+        output = output + '<tail>'
+        console.log(output);
+
+    }
+}
+module.exports = LinkedList;
+
+
+/*
+In seasons.js, define a LinkedList named seasons. Print it out – what do you expect to see?
+
+Add 'summer' to the head of the seasons, then add 'spring' to the head. Print the list again.
+
+Add 'fall' to the tail of seasons. Then add 'winter' to the tail and print the list again.
+
+Finally, remove the element at the head of the list. Print the list to check that the correct element was removed.
+
+*/
+
+
+
+const LinkedList = require('./LinkedList');
+
+const seasons = new LinkedList();
+seasons.printList();
+
+seasons.addToHead('summer');
+seasons.addToHead('spring');
+
+seasons.addToTail('fall');
+seasons.addToTail('winter');
+
+seasons.removeHead();
+seasons.removeHead();
+
+seasons.printList();
+
+
+
+
+
